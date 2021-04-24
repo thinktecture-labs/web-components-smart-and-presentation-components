@@ -1,3 +1,5 @@
+// Careful, this code is on purpose not correct.
+
 import { CdService } from '../0-shared/cd.service.js';
 
 const template = document.createElement('template');
@@ -43,10 +45,10 @@ export class CdList extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render();
+    this.#render();
   }
 
-  render() {
+  #render() {
     const data = this.#cdService.list();
 
     const htmlRows = data.map(item => {
@@ -60,7 +62,7 @@ export class CdList extends HTMLElement {
 
       button.addEventListener('click', () => {
         this.#cdService.delete(item.id);
-        this.render();
+        this.#render();
       });
 
       return row;

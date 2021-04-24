@@ -1,3 +1,5 @@
+// Careful, this code is on purpose not correct.
+
 import { MovieService } from '../0-shared/movie.service.js';
 
 const template = document.createElement('template');
@@ -44,10 +46,10 @@ export class MovieList extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render();
+    this.#render();
   }
 
-  render() {
+  #render() {
     const data = this.#movieService.list();
 
     const htmlRows = data.map(item => {
@@ -63,7 +65,7 @@ export class MovieList extends HTMLElement {
 
       button.addEventListener('click', () => {
         this.#movieService.delete(item.id);
-        this.render();
+        this.#render();
       });
 
       return row;
