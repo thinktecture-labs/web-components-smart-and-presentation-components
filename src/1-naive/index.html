@@ -3,14 +3,27 @@
   <head>
     <meta charset="UTF-8">
     <title>Naive</title>
-    <script src="cd-list.component.js" type="module"></script>
-    <script src="movie-list.component.js" type="module"></script>
+    <script src="cd-list-dropdown.component.js" type="module"></script>
+    <script src="movie-list-dropdown.component.js" type="module"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+        }
+    </style>
   </head>
   <body>
-    <app-cd-list></app-cd-list>
+    <app-cd-list-dropdown></app-cd-list-dropdown>
 
     <hr>
 
-    <app-movie-list></app-movie-list>
+    <app-movie-list-dropdown></app-movie-list-dropdown>
+
+    <script>
+      const cdList = document.querySelector('app-cd-list-dropdown');
+      cdList.addEventListener('selected', ({ detail }) => console.log(detail));
+
+      const movieList = document.querySelector('app-movie-list-dropdown');
+      movieList.addEventListener('selected', ({ detail }) => console.log(detail));
+    </script>
   </body>
 </html>

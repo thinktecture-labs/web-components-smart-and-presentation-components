@@ -25,8 +25,4 @@ export class CdService {
   list() {
     return [...this.#data];
   }
-
-  delete(id) {
-    this.#data = this.#data.filter(item => item.id !== id);
-  }
 }
