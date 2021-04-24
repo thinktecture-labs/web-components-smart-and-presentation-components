@@ -73,8 +73,20 @@ export class Table extends HTMLElement {
         button.innerText = field.name;
         button.addEventListener('click', () => field.callback(item));
         column.appendChild(button);
+      } else if (field.type === 'link') {
+        const a = document.createElement('a');
+        a.target = '_blank';
+        a.innerText = field.name;
+        a.href = item[field.key];
+        column.appendChild(a);
       } else {
-        column.innerText = item[field.key];
+        let text = item[field.key];
+
+        if (field.renderCallback) {
+          text = field.renderCallback(item);
+        }
+
+        column.innerText = text;
       }
 
       row.appendChild(column);
