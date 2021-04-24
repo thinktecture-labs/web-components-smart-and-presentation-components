@@ -1,6 +1,10 @@
 {
   "name": "web-components-smart-and-presentational-pattern",
   "version": "1.0.0",
-  "dependencies": {
+  "scripts": {
+    "start": "browser-sync src --watch --no-open"
+  },
+  "devDependencies": {
+    "browser-sync": "~2.26.14"
   }
 }
