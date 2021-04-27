@@ -29,6 +29,14 @@ export class SelectComponent extends HTMLElement {
       }
 
       this.#itemComponents = slottedPanel.querySelectorAll('app-select-item');
+
+      this.#itemComponents.forEach((node, index) => {
+        if (!index) {
+          return;
+        }
+
+        node.classList.add('border-top');
+      })
     });
   }
 

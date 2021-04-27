@@ -48,25 +48,6 @@ export class Dropdown extends HTMLElement {
 
     this.#trigger = this.shadowRoot.querySelector('.trigger');
     this.#panel = this.shadowRoot.querySelector('.panel');
-
-    const panelSlot = this.#panel.querySelector('slot');
-    panelSlot.addEventListener('slotchange', () => {
-      const [ slottedPanel ] = panelSlot.assignedNodes();
-
-      if (!slottedPanel) {
-        return;
-      }
-
-      const nodes = slottedPanel.querySelectorAll('app-dropdown-item');
-
-      nodes.forEach((node, index) => {
-        if (!index) {
-          return;
-        }
-
-        node.classList.add('border-top');
-      });
-    });
   }
 
   connectedCallback() {
